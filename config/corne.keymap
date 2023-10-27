@@ -52,6 +52,30 @@
                     , <&kp TAB>
                     , <&macro_release &kp LGUI> ;
                     };
+            dni: dni {
+                label = "dni_string";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp N3 &kp N8 &kp N5 &kp N2 &kp N1 &kp N9 &kp N9 &kp N1>;
+                    };
+
+            phone: phone {
+                label = "phone";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp N1 &kp N1 &kp N6 &kp N4 &kp N4 &kp N8 &kp N4 &kp N7 &kp N1 &kp N5>;
+                    };
+
+            p_email_1: p_email_1 {
+                label = "p_email_1";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp K &kp E &kp N &kp J &kp I &kp M &kp A &kp R &kp T &kp I &kp N &kp U &kp S &kp H &kp I &kp R &kp O>,
+                    <&kp AT &kp G &kp M &kp I &kp L &kp DOT &kp C &kp O &kp M> ;
+                    };
         };
         keymap {
                 compatible = "zmk,keymap";
@@ -95,16 +119,16 @@
                         bindings = <
                         &none &kp AT &kp LT &kp GT &none &none                          &none &kp F1 &kp F2 &kp F3 &kp F4 &none
                         &kp LCTRL &kp AT &kp PLUS &kp MINUS &kp EQUAL &none             &none &kp F5 &kp F6 &kp F7 &kp F8 &none
-                        &kp LSHFT &none &none &none &none &none                         &none &kp F9 &kp F10 &kp F11 &kp F12 &none
+                        &none &none &none &none &none &none                         &none &kp F9 &kp F10 &kp F11 &kp F12 &none
                                           &kp LALT &mo CONFIG &none &none &none &none
                         >;
                 };
 
                 config_layer {
                         bindings = <
-                        &none &none &none &none &none &none                    &none &none &none &none &none &none
-                        &none &none &none &none &none &none                    &none &none &none &none &none &none
-                        &none &none &none &none &none &none                    &none &none &none &none &none &none
+                        &none &none &none &none &none &none                                             &none &none &none &none &none &p_email_1
+                        &none &none &none &none &none &none                                             &none &none &none &none &none &none
+                        &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &none &kp K_PREV &kp K_PLAY_PAUSE &kp K_NEXT &dni &phone
                                                 &none &none &none &none &none &none
                         >;
                 };
