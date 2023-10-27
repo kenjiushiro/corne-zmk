@@ -32,7 +32,7 @@
                 bindings
                     = <&macro_press &kp LCTRL &kp LGUI>
                     , <&kp RIGHT>
-                    , <&macro_release &kp LCTRL &kp LGUI> ;
+                    , <&macro_release &kp RIGHT &kp LCTRL &kp LGUI> ;
                     };
             prev_desktop: prev_desktop {
                 label = "prev_desktop";
@@ -41,7 +41,7 @@
                 bindings
                     = <&macro_press &kp LCTRL &kp LGUI>
                     , <&kp LEFT>
-                    , <&macro_release &kp LCTRL &kp LGUI> ;
+                    , <&macro_release &kp LEFT &kp LCTRL &kp LGUI> ;
                     };
             mission_control: mission_control {
                 label = "mission_control";
@@ -93,9 +93,9 @@
 
                 function_layer {
                         bindings = <
-                        &none &kp AT &kp LT &kp GT &none &none           &none &kp F1 &kp F2 &kp F3 &kp F4 &none
+                        &none &kp AT &kp LT &kp GT &none &none                          &none &kp F1 &kp F2 &kp F3 &kp F4 &none
                         &kp LCTRL &kp AT &kp PLUS &kp MINUS &kp EQUAL &none             &none &kp F5 &kp F6 &kp F7 &kp F8 &none
-                        &kp LSHFT &none &none &none &none &none             &none &kp F9 &kp F10 &kp F11 &kp F12 &none
+                        &kp LSHFT &none &none &none &none &none                         &none &kp F9 &kp F10 &kp F11 &kp F12 &none
                                           &kp LALT &mo CONFIG &none &none &none &none
                         >;
                 };
