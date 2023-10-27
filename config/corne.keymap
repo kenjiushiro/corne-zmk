@@ -61,6 +61,14 @@
                     <&kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M> ;
                     };
 
+            pscrn: pscrn {
+                label = "pscrn";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp PRINTSCREEN>;
+                    };
+
             undo: undo {
                 label = "undo";
                 compatible = "zmk,behavior-macro";
@@ -108,7 +116,7 @@
                         bindings = <
    &kp TAB    &kp N1       &prev_desktop       &mission_control       &next_desktop       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
    &none &kp BSPC &kp LCTRL &kp DEL &kp RET &none &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &kp DEL
-   &kp LSHFT  &undo       &cut       &copy       &paste       &none         &kp PG_DN   &kp PG_UP   &none &none    &none &none
+   &kp LSHFT  &undo       &cut       &copy       &paste       &pscrn         &kp PG_DN   &kp PG_UP   &none &none    &none &none
                                     &none     &none       &kp SPACE      &kp RET  &none   &kp RALT
                         >;
                 };
