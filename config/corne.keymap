@@ -123,6 +123,14 @@
                     = <&kp LS(LA(TAB))> ;
                     };
 
+            enie: enie {
+                label = "enie";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LA(0, 2, 4, 1)> ;
+                    };
+
         };
 
         conditional_layers {
@@ -158,7 +166,7 @@
 //|---TAB----|-----Q------|-----W------|-----E------|-----R------|-----T------||||||||----Y-----|-----U------|-----I------|-----O------|-----P------|--BKSPC---|
    &none      &kp BSPC     &kp LCTRL    &kp DEL      &kp RET      &none               &kp LEFT   &kp DOWN     &kp UP       &kp RIGHT    &none        &trans
 //|---CTRL---|-----A------|-----S------|-----D------|-----F------|-----G------||||||||----H-----|-----J------|-----K------|-----L------|-----;------|---DEL----|
-   &trans     &undo        &cut         &copy        &paste       &pscrn              &none      &kp PG_DN    &kp PG_UP    &none        &none        &trans
+   &trans     &undo        &cut         &copy        &paste       &pscrn              &enie      &kp PG_DN    &kp PG_UP    &none        &none        &trans
 //|---SHFT---|-----Z------|-----X------|-----C------|-----V------|-----B------||||||||----N-----|-----M------|---COMMA----|----DOT-----|-----/------|--ENTER---|
                                            &none        &none        &kp SPACE     &kp RET    &none        &kp RALT
 //                                        |---NAV_LYR--|---SYM_LYR--|---SPACE----||---LGUI---|---FN_LYR---|----LALT----|
