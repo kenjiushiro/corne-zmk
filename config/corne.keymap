@@ -40,8 +40,8 @@
                 label = "dni_string";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
-                wait-ms = "10",
-                tap-ms = "5",
+                wait-ms = <10>,
+                tap-ms = <5>,
                 bindings
                     = <&kp N3 &kp N8 &kp N5 &kp N2 &kp N1 &kp N9 &kp N9 &kp N1>;
                     };
@@ -49,8 +49,8 @@
             phone: phone {
                 label = "phone";
                 compatible = "zmk,behavior-macro";
-                wait-ms = "10",
-                tap-ms = "5",
+                wait-ms = <10>,
+                tap-ms = <5>,
                 #binding-cells = <0>;
                 bindings
                     = <&kp N1 &kp N1 &kp N6 &kp N4 &kp N4 &kp N8 &kp N4 &kp N7 &kp N1 &kp N5>;
@@ -59,8 +59,8 @@
             p_email_1: p_email_1 {
                 label = "p_email_1";
                 compatible = "zmk,behavior-macro";
-                wait-ms = "10",
-                tap-ms = "5",
+                wait-ms = <10>,
+                tap-ms = <5>,
                 #binding-cells = <0>;
                 bindings
                     = <&kp K &kp E &kp N &kp J &kp I &kp M &kp A &kp R &kp T &kp I &kp N &kp U &kp S &kp H &kp I &kp R &kp O>,
