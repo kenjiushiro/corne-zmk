@@ -15,42 +15,26 @@
 
 / {
         macros {
-            personal_email_1: personal_email_1 {
-                label = "personal_email_1";
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings
-                    = <&macro_tap_time 10>
-                    , <&kp S &kp H &kp O &kp R &kp T>
-                    , <&macro_tap_time 500>
-                    , <&kp L &kp O &kp N &kp G> ;
-                    };
             next_desktop: next_desktop {
                 label = "next_desktop";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings
-                    = <&macro_press &kp LCTRL &kp LGUI>
-                    , <&kp RIGHT>
-                    , <&macro_release &kp RIGHT &kp LCTRL &kp LGUI> ;
+                    = <&kp LC(LG(RIGHT))>;
                     };
             prev_desktop: prev_desktop {
                 label = "prev_desktop";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings
-                    = <&macro_press &kp LCTRL &kp LGUI>
-                    , <&kp LEFT>
-                    , <&macro_release &kp LEFT &kp LCTRL &kp LGUI> ;
+                    = <&kp LC(LG(LEFT))>;
                     };
             mission_control: mission_control {
                 label = "mission_control";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings
-                    = <&macro_press &kp LGUI>
-                    , <&kp TAB>
-                    , <&macro_release &kp LGUI> ;
+                    = <&kp LG(TAB)>;
                     };
             dni: dni {
                 label = "dni_string";
@@ -76,6 +60,38 @@
                     = <&kp K &kp E &kp N &kp J &kp I &kp M &kp A &kp R &kp T &kp I &kp N &kp U &kp S &kp H &kp I &kp R &kp O>,
                     <&kp AT &kp G &kp M &kp I &kp L &kp DOT &kp C &kp O &kp M> ;
                     };
+
+            undo: undo {
+                label = "undo";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LC(Z)> ;
+                    };
+
+            cut: cut {
+                label = "cut";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LC(X)> ;
+                    };
+
+            copy: copy {
+                label = "copy";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LC(C)> ;
+                    };
+
+            paste: paste {
+                label = "paste";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LC(V)> ;
+                    };
         };
         keymap {
                 compatible = "zmk,keymap";
@@ -92,7 +108,7 @@
                         bindings = <
    &kp TAB    &kp N1       &prev_desktop       &mission_control       &next_desktop       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
    &none &kp BSPC &kp LCTRL &kp DEL &kp RET &none &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &kp DEL
-   &kp LSHFT  &none       &none       &none       &none       &none         &none   &none   &none &none    &none &none
+   &kp LSHFT  &undo       &cut       &copy       &paste       &none         &kp PG_DN   &kp PG_UP   &none &none    &none &none
                                     &none     &none       &kp SPACE      &kp RET  &none   &kp RALT
                         >;
                 };
