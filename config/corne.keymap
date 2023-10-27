@@ -137,7 +137,7 @@
                 };
                 nav_layer {
                         bindings = <
-   &slalt_tab   &lalt_tab     &prev_desktop       &mission_control       &next_desktop       &none         &none   &none   &none &none    &none &none
+   &slalt_tab   &lalt_tab     &prev_desktop       &mission_control       &next_desktop       &none         &none   &none   &kp HOME &kp END    &none &trans
    &none &kp BSPC &kp LCTRL &kp DEL &kp RET &none &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &kp DEL
    &kp LSHFT  &undo       &cut       &copy       &paste       &pscrn         &kp PG_DN   &kp PG_UP   &none &none    &none &none
                                     &none     &none       &kp SPACE      &kp RET  &none   &kp RALT
