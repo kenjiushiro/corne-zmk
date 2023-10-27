@@ -101,6 +101,13 @@
                     = <&kp LC(V)> ;
                     };
         };
+        conditional_layers {
+            compatible = "zmk,conditional-layers";
+            config_layer {
+                if-layers = <SYMBOL FNLAY>;
+                then-layer = <CONFIG>;
+            };
+        };
         keymap {
                 compatible = "zmk,keymap";
 
@@ -125,8 +132,8 @@
                         bindings = <
    &kp TILDE  &kp EXCL &kp PRCNT &kp HASH &kp ASTERISK &none   &none &kp DOLLAR  &kp LBRC &kp RBRC &kp EQUAL &kp BSPC
    &kp AT &kp DOLLAR   &kp GRAVE &kp DQT   &kp SQT   &none      &kp LT &kp LPAR &kp RPAR        &none &kp MINUS &kp GT
-   &kp LSHFT &kp BSLH   &kp CARET &kp AMPS   &kp PIPE   &none      &none &kp LBKT  &kp RBKT        &none &kp UNDER &none
-                             &none &none   &none   &none &mo CONFIG    &none
+   &trans &kp BSLH   &kp CARET &kp AMPS   &kp PIPE   &none      &none &kp LBKT  &kp RBKT        &none &kp UNDER &none
+                             &none &none   &none   &none &trans    &none
                         >;
                 };
 
@@ -135,16 +142,16 @@
                         &none &kp TAB &none &none &kp ASTRK &none             &kp EQUAL &kp N7 &kp N8 &kp N9 &none &kp BSPC
                         &kp LCTRL &none &none &none &none &none             &kp PLUS &kp N4 &kp N5 &kp N6 &kp MINUS &kp DEL
                         &kp LSHFT &none &none &none &none &none             &none &kp N1 &kp N2 &kp N3 &kp SLASH &kp RET
-                                          &kp COMMA &kp DOT &kp SPACE             &kp LGUI &kp N0 &none
+                                          &kp COMMA &kp DOT &kp SPACE             &trans &kp N0 &trans
                         >;
                 };
 
                 function_layer {
                         bindings = <
                         &none &kp AT &kp LT &kp GT &none &none                          &none &kp F1 &kp F2 &kp F3 &kp F4 &none
-                        &kp LCTRL &kp AT &kp PLUS &kp MINUS &kp EQUAL &none             &none &kp F5 &kp F6 &kp F7 &kp F8 &none
-                        &none &none &none &none &none &none                         &none &kp F9 &kp F10 &kp F11 &kp F12 &none
-                                          &kp LALT &mo CONFIG &none &none &none &none
+                        &trans &kp AT &kp PLUS &kp MINUS &kp EQUAL &none             &none &kp F5 &kp F6 &kp F7 &kp F8 &none
+                        &trans &none &none &none &none &none                         &none &kp F9 &kp F10 &kp F11 &kp F12 &none
+                                          &kp LALT &trans &none &none &none &none
                         >;
                 };
 
