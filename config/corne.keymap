@@ -10,6 +10,7 @@
 #define NAV 1
 #define SYMBOL 2
 #define NUMLAY 3
+#define CONFIG 3
 
 / {
         macros {
@@ -73,10 +74,10 @@
 
                 symbol_layer {
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &none   &none &none   &none   &none      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &none   &none &none   &none   &none      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &none   &kp SPACE   &kp RET   &none    &kp RALT
+   &kp TILDE  &kp EXCL &kp PRCNT &kp HASH &kp ASTERISK &none   &none &kp DOLLAR  &kp LBRC &kp RBRC &kp EQUAL &kp BSPC
+   &kp AT &kp DOLLAR   &kp GRAVE &kp DQT   &kp SQT   &none      &kp LT &kp LPAR &kp RPAR        &none &kp MINUS &kp GT
+   &kp LSHFT &kp BSLH   &kp CARET &kp AMPS   &kp PIPE   &none      &none &kp LBKT  &kp RBKT        &none &kp UNDER &none
+                             &none &none   &none   &none &mo CONFIG    &none
                         >;
                 };
 
