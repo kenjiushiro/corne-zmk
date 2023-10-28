@@ -44,6 +44,13 @@
                 bindings
                     = <&kp LG(TAB)>;
                     };
+            spotlight_w: spotlight_w {
+                label = "spotlight_w";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LA(SPACE)>;
+                    };
             enie_w: enie_w {
                 label = "enie_w";
                 compatible = "zmk,behavior-macro";
@@ -89,6 +96,13 @@
                     ;
                     };
 
+            spotlight_m: spotlight_m {
+                label = "spotlight_m";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LG(SPACE)>;
+                    };
             undo_m: undo_m {
                 label = "undo_m";
                 compatible = "zmk,behavior-macro";
@@ -156,7 +170,14 @@
                     , <&kp N0 &kp N0 &kp F &kp N1 &kp RET>
                     ;
                     };
-
+            spotlight_l: spotlight_l {
+                label = "spotlight_l";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                wait-ms = <100>;
+                bindings
+                    = <&kp LGUI &kp LGUI>;
+                    };
           // ========================================================================================================
           // =========================================== GENERAL MACROS =============================================
           // ========================================================================================================
@@ -328,7 +349,7 @@
 //╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
    &slalt_tab &lalt_tab    &prev_desk_w &show_desk_w &next_desk_w &none               &none      &none        &kp HOME     &kp END      &none        &trans
 //├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
-   &none      &kp BSPC     &kp LCTRL    &kp DEL      &kp RET      &none               &kp LEFT   &kp DOWN     &kp UP       &kp RIGHT    &none        &trans
+   &spotlight_w &kp BSPC     &kp LCTRL    &kp DEL      &kp RET      &none               &kp LEFT   &kp DOWN     &kp UP       &kp RIGHT    &none        &trans
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
    &trans     &undo        &cut         &copy        &paste       &pscrn              &enie_w      &kp PG_DN    &kp PG_UP    &none        &none        &trans
 //╰───SHFT───┴─────Z──────┴─────X──────┴──┬──C──────┴──┬──V──────┴──┬──B──────┴──╮╭──┴────N──┬──┴─────M───┬──┴───COMMA─┬──┴────DOT─────┴─────/──────┴──ENTER───╯
@@ -411,7 +432,7 @@
 //╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
    &trans     &trans       &prev_desk_l &show_desk_l &next_desk_l &none               &none      &none        &trans       &trans       &trans       &trans
 //├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
-   &trans     &trans       &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
+   &spotlight_l &trans       &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
    &trans     &trans       &trans       &trans       &trans       &pscrn              &enie_l    &trans       &trans       &trans       &trans       &trans
 //╰───SHFT───┴─────Z──────┴─────X──────┴──┬──C──────┴──┬──V──────┴──┬──B──────┴──╮╭──┴────N──┬──┴─────M───┬──┴───COMMA─┬──┴────DOT─────┴─────/──────┴──ENTER───╯
@@ -438,7 +459,7 @@
 //╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
    &trans     &trans       &prev_desk_m &show_desk_m &next_desk_m &none               &none      &none        &trans       &trans       &trans       &trans
 //├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
-   &trans     &trans       &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
+   &spotlight_m &trans       &kp LALT     &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
    &trans     &undo_m      &cut_m       &copy_m      &paste_m     &pscrn              &enie_m    &trans       &trans       &trans       &trans       &trans
 //╰───SHFT───┴─────Z──────┴─────X──────┴──┬──C──────┴──┬──V──────┴──┬──B──────┴──╮╭──┴────N──┬──┴─────M───┬──┴───COMMA─┬──┴────DOT─────┴─────/──────┴──ENTER───╯
