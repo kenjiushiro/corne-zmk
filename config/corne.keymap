@@ -179,8 +179,18 @@
                     = <&kp LS(LA(TAB))> ;
                     };
 
-            enie: enie {
-                label = "enie";
+            enie_w: enie_w {
+                label = "enie_w";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <&macro_press &kp LALT>
+                    , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N1>
+                    , <&macro_release &kp LALT>
+                    ;
+                    };
+
+            enie_l: enie_l {
+                label = "enie_l";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings = <&macro_press &kp LALT>
@@ -234,7 +244,7 @@
 //├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
    &none      &kp BSPC     &kp LCTRL    &kp DEL      &kp RET      &none               &kp LEFT   &kp DOWN     &kp UP       &kp RIGHT    &none        &trans
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
-   &trans     &undo        &cut         &copy        &paste       &pscrn              &enie      &kp PG_DN    &kp PG_UP    &none        &none        &trans
+   &trans     &undo        &cut         &copy        &paste       &pscrn              &enie_w      &kp PG_DN    &kp PG_UP    &none        &none        &trans
 //╰───SHFT───┴─────Z──────┴─────X──────┴──┬──C──────┴──┬──V──────┴──┬──B──────┴──╮╭──┴────N──┬──┴─────M───┬──┴───COMMA─┬──┴────DOT─────┴─────/──────┴──ENTER───╯
                                            &none        &none        &kp SPACE     &kp RET    &none        &kp RALT
 //                                        ╰───NAV_LYR──┴───SYM_LYR──┴───SPACE────╯╰───LGUI───┴───FN_LYR───┴────LALT────╯
@@ -286,7 +296,7 @@
                 config_layer {
                         bindings = <
 //╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
-   &none      &none        &none        &to 0        &to LINUX    &none               &none      &none        &none        &none        &t_email_2   &p_email_1
+   &none      &none        &none        &to 0        &to LINUX    &none               &none      &none        &none        &none        &p_email_2   &p_email_1
 //├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
    &none      &none        &none        &none        &none        &none               &none      &none        &none        &none        &w_email_2   &w_email_1
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
@@ -317,7 +327,7 @@
 //├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
    &trans     &trans       &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
-   &trans     &trans       &trans       &trans       &trans       &pscrn              &enie      &trans       &trans       &trans       &trans       &trans
+   &trans     &trans       &trans       &trans       &trans       &pscrn              &enie_l    &trans       &trans       &trans       &trans       &trans
 //╰───SHFT───┴─────Z──────┴─────X──────┴──┬──C──────┴──┬──V──────┴──┬──B──────┴──╮╭──┴────N──┬──┴─────M───┬──┴───COMMA─┬──┴────DOT─────┴─────/──────┴──ENTER───╯
                                            &trans       &trans       &trans        &trans     &trans       &trans
 //                                        ╰───NAV_LYR──┴───SYM_LYR──┴───SPACE────╯╰───LGUI───┴───FN_LYR───┴────LALT────╯
