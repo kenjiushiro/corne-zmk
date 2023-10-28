@@ -12,6 +12,8 @@
 #define NUMLAY 3
 #define FNLAY 4
 #define CONFIG 5
+#define LINUX 6
+#define LINUX_NAV 7
 
 / {
         macros {
@@ -195,6 +197,10 @@
                 if-layers = <SYMBOL FNLAY>;
                 then-layer = <CONFIG>;
             };
+            linux_conditional_layer {
+                if-layers = <NAV LINUX>;
+                then-layer = <LINUX_NAV>;
+            };
         };
 
         keymap {
@@ -221,10 +227,10 @@
                         >;
                 };
 
-                nav_layer {
+                windows_nav_layer {
                         bindings = <
 //╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
-   &slalt_tab &lalt_tab &prev_desk_w &show_desk_w &next_desk_w &none            &none      &none        &kp HOME     &kp END      &none        &trans
+   &slalt_tab &lalt_tab    &prev_desk_w &show_desk_w &next_desk_w &none               &none      &none        &kp HOME     &kp END      &none        &trans
 //├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
    &none      &kp BSPC     &kp LCTRL    &kp DEL      &kp RET      &none               &kp LEFT   &kp DOWN     &kp UP       &kp RIGHT    &none        &trans
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
@@ -280,7 +286,7 @@
                 config_layer {
                         bindings = <
 //╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
-   &none      &none        &none        &none        &none        &none               &none      &none        &none        &none        &p_email_2   &p_email_1
+   &none      &none        &none        &to 0        &to LINUX    &none               &none      &none        &none        &none        &t_email_2   &p_email_1
 //├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
    &none      &none        &none        &none        &none        &none               &none      &none        &none        &none        &w_email_2   &w_email_1
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
@@ -291,5 +297,31 @@
                         >;
                 };
 
+                linux_layer {
+                        bindings = <
+//╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
+   &trans     &trans       &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
+//├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
+   &trans     &trans       &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
+//│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
+   &trans     &trans       &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
+//╰───SHFT───┴─────Z──────┴─────X──────┴──┬──C──────┴──┬──V──────┴──┬──B──────┴──╮╭──┴────N──┬──┴─────M───┬──┴───COMMA─┬──┴────DOT─────┴─────/──────┴──ENTER───╯
+                                           &trans       &trans       &trans        &trans     &trans       &trans
+//                                        ╰───NAV_LYR──┴───SYM_LYR──┴───SPACE────╯╰───LGUI───┴───FN_LYR───┴────LALT────╯
+                        >;
+                };
+                linux_nav_layer {
+                        bindings = <
+//╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
+   &trans     &trans       &prev_desk_l &show_desk_l &next_desk_l &none               &none      &none        &trans       &trans       &trans       &trans
+//├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
+   &trans     &trans       &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
+//│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
+   &trans     &trans       &trans       &trans       &trans       &pscrn              &enie      &trans       &trans       &trans       &trans       &trans
+//╰───SHFT───┴─────Z──────┴─────X──────┴──┬──C──────┴──┬──V──────┴──┬──B──────┴──╮╭──┴────N──┬──┴─────M───┬──┴───COMMA─┬──┴────DOT─────┴─────/──────┴──ENTER───╯
+                                           &trans       &trans       &trans        &trans     &trans       &trans
+//                                        ╰───NAV_LYR──┴───SYM_LYR──┴───SPACE────╯╰───LGUI───┴───FN_LYR───┴────LALT────╯
+                        >;
+                };
         };
 };
