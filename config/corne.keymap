@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#define DEFAULT 0
 #define NAV 1
 #define SYMBOL 2
 #define NUMLAY 3
@@ -17,6 +18,9 @@
 
 / {
         macros {
+          // ========================================================================================================
+          // =========================================== WINDOWS MACROS =============================================
+          // ========================================================================================================
             next_desk_w: next_desk_w {
                 label = "next_desk_w";
                 compatible = "zmk,behavior-macro";
@@ -38,6 +42,53 @@
                 bindings
                     = <&kp LG(TAB)>;
                     };
+            enie_w: enie_w {
+                label = "enie_w";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <&macro_press &kp LALT>
+                    , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N1>
+                    , <&macro_release &kp LALT>
+                    ;
+                    };
+
+          // ========================================================================================================
+          // =========================================== MAC MACROS =================================================
+          // ========================================================================================================
+
+            next_desk_m: next_desk_m {
+                label = "next_desk_m";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LC(RIGHT)>;
+                    };
+            prev_desk_m: prev_desk_m {
+                label = "prev_desk_m";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LC(LEFT)>;
+                    };
+            show_desk_m: show_desk_m {
+                label = "show_desk_m";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LC(UP)>;
+                    };
+            enie_m: enie_m {
+                label = "enie_m";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <&kp LA(N) &kp N>
+                    ;
+                    };
+
+          // ========================================================================================================
+          // =========================================== LINUX MACROS ===============================================
+          // ========================================================================================================
+
             next_desk_l: next_desk_l {
                 label = "next_desk_l";
                 compatible = "zmk,behavior-macro";
@@ -59,6 +110,19 @@
                 bindings
                     = <&kp LGUI>;
                     };
+            enie_l: enie_l {
+                label = "enie_l";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <&kp LC(LS(U))>
+                    , <&kp N0 &kp N0 &kp F &kp N1 &kp RET>
+                    ;
+                    };
+
+          // ========================================================================================================
+          // =========================================== GENERAL MACROS =============================================
+          // ========================================================================================================
+
             dni: dni {
                 label = "dni_string";
                 compatible = "zmk,behavior-macro";
@@ -179,25 +243,6 @@
                     = <&kp LS(LA(TAB))> ;
                     };
 
-            enie_w: enie_w {
-                label = "enie_w";
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&macro_press &kp LALT>
-                    , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N1>
-                    , <&macro_release &kp LALT>
-                    ;
-                    };
-
-            enie_l: enie_l {
-                label = "enie_l";
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings = <&kp LC(LS(U))>
-                    , <&kp N0 &kp N0 &kp F &kp N1 &kp RET>
-                    ;
-                    };
-
         };
 
         conditional_layers {
@@ -295,7 +340,7 @@
                 config_layer {
                         bindings = <
 //╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
-   &none      &none        &none        &to 0        &to LINUX    &none               &none      &none        &none        &none        &p_email_2   &p_email_1
+   &none      &none        &none        &to DEFAULT  &to LINUX    &none               &none      &none        &none        &none        &p_email_2   &p_email_1
 //├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
    &none      &none        &none        &none        &none        &none               &none      &none        &none        &none        &w_email_2   &w_email_1
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
