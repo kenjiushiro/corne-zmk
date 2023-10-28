@@ -15,26 +15,47 @@
 
 / {
         macros {
-            next_desktop: next_desktop {
-                label = "next_desktop";
+            next_desk_w: next_desk_w {
+                label = "next_desk_w";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings
                     = <&kp LC(LG(RIGHT))>;
                     };
-            prev_desktop: prev_desktop {
-                label = "prev_desktop";
+            prev_desk_w: prev_desk_w {
+                label = "prev_desk_w";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings
                     = <&kp LC(LG(LEFT))>;
                     };
-            mission_control: mission_control {
-                label = "mission_control";
+            show_desk_w: show_desk_w {
+                label = "show_desk_w";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings
                     = <&kp LG(TAB)>;
+                    };
+            next_desk_l: next_desk_l {
+                label = "next_desk_l";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LC(LA(RIGHT))>;
+                    };
+            prev_desk_l: prev_desk_l {
+                label = "prev_desk_l";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LC(LA(LEFT))>;
+                    };
+            show_desk_l: show_desk_l {
+                label = "show_desk_l";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LGUI>;
                     };
             dni: dni {
                 label = "dni_string";
@@ -65,6 +86,39 @@
                 bindings
                     = <&kp K &kp E &kp N &kp J &kp I &kp M &kp A &kp R &kp T &kp I &kp N &kp U &kp S &kp H &kp I &kp R &kp O>,
                     <&kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M> ;
+                    };
+
+            p_email_2: p_email_2 {
+                label = "p_email_2";
+                compatible = "zmk,behavior-macro";
+                wait-ms = <10>;
+                tap-ms = <5>;
+                #binding-cells = <0>;
+                bindings
+                    = <&kp K &kp E &kp N &kp J &kp I &kp U &kp S &kp H &kp I &kp R &kp O>,
+                    <&kp AT &kp L &kp I &kp V &kp E &kp DOT &kp C &kp O &kp M> ;
+                    };
+
+            w_email_1: w_email_1 {
+                label = "w_email_1";
+                compatible = "zmk,behavior-macro";
+                wait-ms = <10>;
+                tap-ms = <5>;
+                #binding-cells = <0>;
+                bindings
+                    = <&kp K &kp E &kp N &kp J &kp I &kp DOT &kp U &kp S &kp H &kp I &kp R &kp O>,
+                    <&kp AT &kp C &kp R &kp A &kp F &kp T &kp L &kp A &kp B &kp S &kp DOT &kp C &kp O &kp M> ;
+                    };
+
+            w_email_2: w_email_2 {
+                label = "w_email_2";
+                compatible = "zmk,behavior-macro";
+                wait-ms = <10>;
+                tap-ms = <5>;
+                #binding-cells = <0>;
+                bindings
+                    = <&kp K &kp E &kp N &kp J &kp I &kp DOT &kp M &kp DOT &kp U &kp S &kp H &kp I &kp R &kp O>,
+                    <&kp AT &kp G &kp S &kp K &kp DOT &kp C &kp O &kp M> ;
                     };
 
             pscrn: pscrn {
@@ -170,7 +224,7 @@
                 nav_layer {
                         bindings = <
 //╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
-   &slalt_tab &lalt_tab &prev_desktop &mission_control &next_desktop &none            &none      &none        &kp HOME     &kp END      &none        &trans
+   &slalt_tab &lalt_tab &prev_desk_w &show_desk_w &next_desk_w &none            &none      &none        &kp HOME     &kp END      &none        &trans
 //├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
    &none      &kp BSPC     &kp LCTRL    &kp DEL      &kp RET      &none               &kp LEFT   &kp DOWN     &kp UP       &kp RIGHT    &none        &trans
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
@@ -226,9 +280,9 @@
                 config_layer {
                         bindings = <
 //╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
-   &none      &none        &none        &none        &none        &none               &none      &none        &none        &none        &none        &p_email_1
+   &none      &none        &none        &none        &none        &none               &none      &none        &none        &none        &p_email_2   &p_email_1
 //├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
-   &none      &none        &none        &none        &none        &none               &none      &none        &none        &none        &none        &none
+   &none      &none        &none        &none        &none        &none               &none      &none        &none        &none        &w_email_2   &w_email_1
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4        &none      &kp K_PREV   &kp K_PP     &kp K_NEXT   &dni         &phone
 //╰───SHFT───┴─────Z──────┴─────X──────┴──┬──C──────┴──┬──V──────┴──┬──B──────┴──╮╭──┴────N──┬──┴─────M───┬──┴───COMMA─┬──┴────DOT─────┴─────/──────┴──ENTER───╯
