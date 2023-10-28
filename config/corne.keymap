@@ -193,9 +193,9 @@
                 label = "enie_l";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
-                bindings = <&macro_press &kp LALT>
-                    , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N1>
-                    , <&macro_release &kp LALT>
+                bindings = <&>
+                    , <&kp LC(LS(U))>
+                    , <&kp N0 &kp N0 &kp F &kp N1 &kp RET>
                     ;
                     };
 
