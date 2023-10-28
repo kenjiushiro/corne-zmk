@@ -15,6 +15,8 @@
 #define CONFIG 5
 #define LINUX 6
 #define LINUX_NAV 7
+#define MAC 8
+#define MAC_NAV 9
 
 / {
         macros {
@@ -85,6 +87,38 @@
                 #binding-cells = <0>;
                 bindings = <&kp LA(N) &kp N>
                     ;
+                    };
+
+            undo_m: undo_m {
+                label = "undo_m";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LG(Z)> ;
+                    };
+
+            cut_m: cut_m {
+                label = "cut_m";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LG(X)> ;
+                    };
+
+            copy_m: copy_m {
+                label = "copy_m";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LG(C)> ;
+                    };
+
+            paste_m: paste_m {
+                label = "paste_m";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&kp LG(V)> ;
                     };
 
           // ========================================================================================================
@@ -259,6 +293,10 @@
                 if-layers = <NAV LINUX>;
                 then-layer = <LINUX_NAV>;
             };
+            mac_conditional_layer {
+                if-layers = <NAV MAC>;
+                then-layer = <MAC_NAV>;
+            };
         };
 
         keymap {
@@ -344,7 +382,7 @@
                 config_layer {
                         bindings = <
 //╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
-   &none      &none        &none        &to DEFAULT  &to LINUX    &none               &none      &none        &none        &none        &p_email_2   &p_email_1
+   &none      &none        &none        &to DEFAULT  &to LINUX    &to MAC             &none      &none        &none        &none        &p_email_2   &p_email_1
 //├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
    &none      &none        &none        &none        &none        &none               &none      &none        &none        &none        &w_email_2   &w_email_1
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
@@ -376,6 +414,33 @@
    &trans     &trans       &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
    &trans     &trans       &trans       &trans       &trans       &pscrn              &enie_l    &trans       &trans       &trans       &trans       &trans
+//╰───SHFT───┴─────Z──────┴─────X──────┴──┬──C──────┴──┬──V──────┴──┬──B──────┴──╮╭──┴────N──┬──┴─────M───┬──┴───COMMA─┬──┴────DOT─────┴─────/──────┴──ENTER───╯
+                                           &trans       &trans       &trans        &trans     &trans       &trans
+//                                        ╰───NAV_LYR──┴───SYM_LYR──┴───SPACE────╯╰───LGUI───┴───FN_LYR───┴────LALT────╯
+                        >;
+                };
+
+                mac_layer {
+                        bindings = <
+//╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
+   &trans     &trans       &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
+//├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
+   &trans     &trans       &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
+//│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
+   &trans     &trans       &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
+//╰───SHFT───┴─────Z──────┴─────X──────┴──┬──C──────┴──┬──V──────┴──┬──B──────┴──╮╭──┴────N──┬──┴─────M───┬──┴───COMMA─┬──┴────DOT─────┴─────/──────┴──ENTER───╯
+                                           &trans       &trans       &trans        &trans     &trans       &trans
+//                                        ╰───NAV_LYR──┴───SYM_LYR──┴───SPACE────╯╰───LGUI───┴───FN_LYR───┴────LALT────╯
+                        >;
+                };
+                mac_nav_layer {
+                        bindings = <
+//╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
+   &trans     &trans       &prev_desk_m &show_desk_m &next_desk_m &none               &none      &none        &trans       &trans       &trans       &trans
+//├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
+   &trans     &trans       &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
+//│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
+   &trans     &undo_m      &cut_m       &copy_m      &paste_m     &pscrn              &enie_m    &trans       &trans       &trans       &trans       &trans
 //╰───SHFT───┴─────Z──────┴─────X──────┴──┬──C──────┴──┬──V──────┴──┬──B──────┴──╮╭──┴────N──┬──┴─────M───┬──┴───COMMA─┬──┴────DOT─────┴─────/──────┴──ENTER───╯
                                            &trans       &trans       &trans        &trans     &trans       &trans
 //                                        ╰───NAV_LYR──┴───SYM_LYR──┴───SPACE────╯╰───LGUI───┴───FN_LYR───┴────LALT────╯
