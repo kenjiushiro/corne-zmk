@@ -235,7 +235,7 @@
                 #binding-cells = <0>;
                 bindings
                     = <&kp K &kp E &kp N &kp J &kp I &kp DOT &kp U &kp S &kp H &kp I &kp R &kp O>,
-                    <&kp AT &kp C &kp R &kp A &kp F &kp T &kp L &kp A &kp B &kp S &kp DOT &kp C &kp O &kp M> ;
+                    <&kp AT &kp C &kp R &kp A &kp F &kp T &kp L &kp A &kp B &kp S &kp DOT &kp N &kp E &kp T> ;
                     };
 
             w_email_2: w_email_2 {
