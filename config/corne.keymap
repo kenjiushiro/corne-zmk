@@ -22,6 +22,15 @@
 #define MAC_NAV 9
 
 / {
+        behaviors {
+            g_nl: gui_numlayer {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <300>;
+                        bindings = <&kp LGUI>, <&mo NUMLAY>;
+            };
+        };
+
         macros {
           // ========================================================================================================
           // =========================================== WINDOWS MACROS =============================================
@@ -349,7 +358,7 @@
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
    &kp LSHFT  &kp Z        &kp X        &kp C        &kp V        &kp B               &kp N      &kp M        &kp COMMA    &kp DOT      &kp FSLH     &kp RET
 //╰───SHFT───┴─────Z──────┴─────X──────┴──┬──C──────┴──┬──V──────┴──┬──B──────┴──╮╭──┴────N──┬──┴─────M───┬──┴───COMMA─┬──┴────DOT─────┴─────/──────┴──ENTER───╯
-                                           &mo NAV      &mo SYMBOL   &kp SPACE     &kp LGUI   &mo FNLAY    &kp LALT
+                                           &mo NAV      &mo SYMBOL   &kp SPACE     &g_nl      &mo FNLAY    &kp LALT
 //                                        ╰───NAV_LYR──┴───SYM_LYR──┴───SPACE────╯╰───LGUI───┴───FN_LYR───┴────LALT────╯
                         >;
                 };
