@@ -294,7 +294,10 @@
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings
-                    = <&kp LA(TAB)> ;
+                    =
+                      <&macro_press &mo 1 &kp LALT>
+                      ,<&macro_tap &kp TAB>
+                      ,<&macro_release &mo 1 &kp LALT>;
                     };
 
             slalt_tab: slalt_tab {
