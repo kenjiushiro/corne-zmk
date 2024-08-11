@@ -115,6 +115,7 @@
                     };
 
             cut_m: cut_m {
+                label = "cut_m";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings
