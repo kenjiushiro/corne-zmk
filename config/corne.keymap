@@ -115,7 +115,6 @@
                     };
 
             cut_m: cut_m {
-                label = "cut_m";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings
@@ -437,9 +436,9 @@
                 linux_nav_layer {
                         bindings = <
 //╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
-   &trans     &trans       &prev_desk_l &show_desk_l &next_desk_l &none               &none      &none        &trans       &trans       &trans       &trans
+   &trans     &trans       &trans       &trans       &trans       &none               &none      &none        &trans       &trans       &trans       &trans
 //├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
-   &spotlight_l &trans     &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
+   &trans     &trans       &trans       &trans       &trans       &trans              &trans     &trans       &trans       &trans       &trans       &trans
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
    &trans     &trans       &trans       &trans       &trans       &pscrn              &enie_l    &trans       &trans       &trans       &trans       &trans
 //╰───SHFT───┴─────Z──────┴─────X──────┴──┬──C──────┴──┬──V──────┴──┬──B──────┴──╮╭──┴────N──┬──┴─────M───┬──┴───COMMA─┬──┴────DOT─────┴─────/──────┴──ENTER───╯
