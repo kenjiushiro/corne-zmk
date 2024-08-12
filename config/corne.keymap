@@ -24,10 +24,11 @@
 / {
         behaviors {
             g_nl: gui_numlayer {
-                        compatible = "zmk,behavior-tap-dance";
-                        #binding-cells = <0>;
-                        tapping-term-ms = <300>;
-                        bindings = <&kp LGUI>, <&mo NUMLAY>;
+                label = "gui_numlayer";
+                compatible = "zmk,behavior-tap-dance";
+                #binding-cells = <0>;
+                tapping-term-ms = <300>;
+                bindings = <&kp LGUI>, <&mo NUMLAY>;
             };
         };
 
