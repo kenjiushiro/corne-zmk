@@ -423,7 +423,7 @@
                 config_layer {
                         bindings = <
 //╭──────────┬────────────┬────────────┬────────────┬────────────┬────────────╮      ╭──────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
-   &bootloader &out OUT_TOG &mmv MOVE_UP &to DEFAULT  &to LINUX   &to MAC             &none      &none        &none        &none        &p_email_2   &p_email_1
+   &soft_off  &none        &mmv MOVE_UP &to DEFAULT  &to LINUX    &to MAC             &none      &none        &none        &none        &p_email_2   &p_email_1
 //├───TAB────┼─────Q──────┼─────W──────┼─────E──────┼─────R──────┼─────T──────┤      ├────Y─────┼─────U──────┼─────I──────┼─────O──────┼─────P──────┼──BKSPC───┤
    &none      &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT &none &none              &none      &mkp MB1     &mkp MB2     &mkp MB3     &w_email_2   &w_email_1
 //│───CTRL───┼─────A──────┼─────S──────┼─────D──────┼─────F──────┼─────G──────┤      ├────H─────┼─────J──────┼─────K──────┼─────L──────┼─────;──────┼───DEL────┤
